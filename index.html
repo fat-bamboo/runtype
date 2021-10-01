@@ -65,7 +65,22 @@
         </header>
     </div>
     <main>
+          <script charset="utf-8">
+            fetch('https://v1.hitokoto.cn/?c=k&c=d&c=h')
+             .then(response => response.json())
+             .then(data => {
+             const hitokoto = document.getElementById('hitokoto_text')
+              hitokoto.href = 'https://hitokoto.cn/?uuid=' + data.uuid
+              hitokoto.innerText = ' ' + data.hitokoto + '—— ' + data.from_who + '《' + data.from + '》'
+               })
+              .catch(console.error)
+
+         </script>
         <div class="container">
+                <div align="left">『</div>
+                <div style="color:#F3442C" align="center" id="hitokoto"><div href="#" id="hitokoto_text"><font size="4" face="PingFang SC" >:D 获取中...</div></font></div>
+                <div align="right">』</div>
+                </p>
             <input class="form-control form-control-lg" type="text" placeholder="请在此输入..."
                 aria-label=".form-control-lg example">
             <div class="out"></div>
